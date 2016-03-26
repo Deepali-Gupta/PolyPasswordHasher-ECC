@@ -14,7 +14,7 @@ Purpose:
 
   This is just a proof-of-concept!!!
   
-  To be used as a library for a project I'm calling PolyPasswordHasherECC.
+  To be used as a library for a project I'm calling PolyPasswordHasher-ECC.
 
 
 Example:

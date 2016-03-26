@@ -58,9 +58,8 @@
 	  print "Can't get here!   It's still bootstrapping!!!"
 
 	# is able to handle one correct incorrect password out of five when threshold is three
-	flag = pph.unlock_password_data([('alice','kitten'),('bob','puppy'),('charlie','chocolate'), ('dennis','menace'),('gone','girl')])
-	if flag == True: #if it crashes, try again
-		continue
+	pph.unlock_password_data([('alice','kitten'),('bob','puppy'),('gone','boy'),('charlie','velociraptor'),('dennis','menace')])
+	
 	# now, I can do the usual operations with it...
 	assert(pph.is_valid_login('alice','kitten') == True)
 
@@ -267,8 +266,6 @@ class PolyPasswordHasher(object):
     # increment the share counter.
     self.nextavailableshare += shares
  
-
-
 
   def is_valid_login(self,username,password):
     """ Check to see if a login is valid."""

@@ -1,7 +1,6 @@
 import polypasswordhasher
-import sys
 
-THRESHOLD = 1
+THRESHOLD = 3
 # require knowledge of 3 shares to decode others.   Create a blank, new
 # password file...
 
@@ -45,7 +44,7 @@ else:
   print "Can't get here!   It's still bootstrapping!!!"
 
 # is able to handle one correct incorrect password out of five when threshold is three
-pph.unlock_password_data([('alice','kitten'),('bob','puppy'),('gone','boy')])
+pph.unlock_password_data([('alice','kitten'),('bob','puppy'),('gone','boy'),('charlie','velociraptor'),('dennis','menace')])
 
 # now, I can do the usual operations with it...
 assert(pph.is_valid_login('alice','kitten') == True)
@@ -58,6 +57,9 @@ pph.create_account('larry','fish',0)
 
 # require knowledge of 10 shares to decode others.   Create a blank, new
 # password file...
+
+THRESHOLD = 10
+
 pph = polypasswordhasher.PolyPasswordHasher(threshold = THRESHOLD, 
 		passwordfile = None, isolated_check_bits = 2)
 
@@ -122,9 +124,8 @@ else:
   print "Isolated validation does not allow account creation!"
 
 
-
-# with a threshold (or more) of correct passwords, it decodes and is usable.
-pph.unlock_password_data([('admin','correct horse'), ('root','battery staple'), ('bob','puppy'),('dennis','menace')])
+# with a threshold+2 number of correct passwords, and one error, it decodes and is usable.
+pph.unlock_password_data([('admin','correct horse'), ('root','battery staple'), ('bob','puppy'),('alice','nyancat!'),('dennis','menace')])
 
 # now, I can do the usual operations with it...
 assert(pph.is_valid_login('alice','kitten') == True)

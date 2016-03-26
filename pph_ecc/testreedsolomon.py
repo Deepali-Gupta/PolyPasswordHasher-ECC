@@ -10,10 +10,8 @@ d=s.compute_share(4)
 e=s.compute_share(5)
 f=s.compute_share(6)
 
-
 # should be able to recover from any two...
 t = reedsolomon.ReedSolomon(2)
-
 
 t.recover_secretdata([b,f]) # output correct secret
 
