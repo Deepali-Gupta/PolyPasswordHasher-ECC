@@ -90,7 +90,7 @@ class ReedSolomon(object):
 
       for byte in self.secretdata:
 		  
-		  byte = rsman.encode(byte)
+		  byte = rsman.encode_fast(byte) #use encode_fast which used faster algorithms and optimization tricks
 		  encoded_bytes.append(byte)
       
       share_list = []
@@ -237,7 +237,7 @@ class ReedSolomon(object):
     for erasures in erasure_strings:
 		erasures_pos = [i for i in xrange(len(erasures)) if erasures[i] == "\x00"]
 		
-		secret+=rsman.decode(erasures, erasures_pos = erasures_pos)[0]
+		secret+=rsman.decode_fast(erasures, erasures_pos = erasures_pos)[0]
 		j=j+1
     
     # construct shares again
@@ -245,7 +245,7 @@ class ReedSolomon(object):
     encoded_bytes = []
     for byte in self.secretdata:
 		  
-		  byte = rsman.encode(byte)
+		  byte = rsman.encode_fast(byte)
 		  encoded_bytes.append(byte)
       
     share_list = []
