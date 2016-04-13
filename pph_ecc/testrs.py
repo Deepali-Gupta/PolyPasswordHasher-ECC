@@ -4,7 +4,7 @@ if __name__ == "__main__":
     # Encoding message
     rsman = rs.RSCoder(255, 5) #RSCoder(n, k)
     mes = 'hello'
-    mesecc = rsman.encode(mes)
+    mesecc = rsman.encode_fast(mes)
     print("Encoded message:")
     print(mesecc)
     
@@ -20,13 +20,13 @@ if __name__ == "__main__":
     erasures_pos = [i for i in xrange(len(mesecc2)) if mesecc2[i] == "\x00"]
     
     # Correct only using erasures decoding
-    eras_r1, eras_r2 = rsman.decode(mesecc2, erasures_pos=erasures_pos, only_erasures=True)
+    eras_r1, eras_r2 = rsman.decode_fast(mesecc2, erasures_pos=erasures_pos, only_erasures=True)
     # Correct using errors+erasures decoding
-    r1, r2 = rsman.decode(mesecc2, erasures_pos=erasures_pos)
+    r1, r2 = rsman.decode_fast(mesecc2, erasures_pos=erasures_pos)
     # Correct using errors+erasures decoding with the message containing erasures and one error
-    err_r1, err_r2 = rsman.decode(mesecc3, erasures_pos=erasures_pos[:ii-2])
+    err_r1, err_r2 = rsman.decode_fast(mesecc3, erasures_pos=erasures_pos[:ii-2])
     # Correct using errors+erasures decoding the message containing only errors
-    err2_r1, err2_r2 = rsman.decode(mesecc4, erasures_pos=[])
+    err2_r1, err2_r2 = rsman.decode_fast(mesecc4, erasures_pos=[])
 
     # Print results
     print("-------")
