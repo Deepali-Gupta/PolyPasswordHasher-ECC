@@ -90,7 +90,7 @@ class ReedSolomon(object):
 
       for byte in self.secretdata:
 		  
-		  byte = rsman.encode_fast(byte) #use encode_fast which used faster algorithms and optimization tricks
+		  byte = rsman.encode_fast(byte) 
 		  encoded_bytes.append(byte)
       
       share_list = []
