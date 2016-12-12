@@ -4,7 +4,7 @@ An extension of the [PolyPasswordHasher password storage scheme](https://github.
 This repository uses Reed Solomon error correcting codes instead of vanilla Shamir Secret Sharing to manage a polypasswordhasher store.
 
 More details about the original scheme can be found [here](https://github.com/PolyPasswordHasher/PolyPasswordHasher).
-This version enables an error-correcting threshold-cryptosystem by using both errors and erasures decoding with [unireedsolom 1.0](https://pypi.python.org/pypi/unireedsolomon). This provides better performance for the server when validating accounts as some number of incorrect passwords are allowed for successful secret recovery. Adding to this, the life of the attacker is also harder, because this scheme exherts more effort at higher error rates.
+This version enables an error-correcting threshold-cryptosystem by using both errors and erasures decoding with [unireedsolom 1.0](https://pypi.python.org/pypi/unireedsolomon). This provides better performance for the server when validating accounts as some number of incorrect passwords are allowed for successful secret recovery. Adding to this, the life of the attacker is also harder, because this scheme exerts more effort at higher error rates.
 
 Given the value of the threshold is k and recovery is tried using n accounts, then the number of permissible erroraneous passwords t is
 given by the relation:
