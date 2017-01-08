@@ -8,9 +8,9 @@ This version enables an error-correcting threshold-cryptosystem by using both er
 
 Given the value of the threshold is k and recovery is tried using n accounts, then the number of permissible erroraneous passwords t is
 given by the relation:
-```
+``
  2*t <= n-k 
-```
+``
 
 ## Code Example
 
